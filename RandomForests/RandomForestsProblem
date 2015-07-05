@@ -1,0 +1,32 @@
+Solving Random Forests Unsupervised Learning Algorithm Using R 
+##########
+PROBLEM STATEMENT: The input data consists of customers of a bank data. The problem is to build a model using random forests to predict whether the customers are likely to buy a loan product if a marketing campaign is launched and targeted towards customers who have loaned products from the bank in the past 
+
+TECHNIQUES 
+1) Random Forests 
+2) Training and testsing 
+3) Confusion matrix 
+4) Indicator variables 
+5) Binning 
+6) Variable reduction 
+
+DATA ENGINEERING AND ANALYSIS 
+-> Begin with setting the working directory and proceed with a visual pass of the data by observing the summary of the data
+-> Since there are a large number of predictor variabls(16) as compared to the target variable(1) among all the vairables present(17) perform a correlation analysis to find out if any of the variables can be dropped.
+->To perform correlation analysis and test whether the correlation co-efficients are above a certain given threshold use the library of "psych" and perform pairs.panels() function analysis 
+->After performing the analysis of the data, create the new_data that contains information on the predictors that are of importance 
+
+DATA TRANSFORMATION 
+->Use the predictor of age to create bins of the data and use boxplots 
+
+EXPLORATORY DATA ANALYSIS 
+->To create training and testing data 
+->Using random forest function to create the model by using the training data
+->Splitting the total data into training and testing data - the ration of 0.7 and 0.3 of 70% and 30%
+->By using the importance of model as importance(model)
+
+TESTING 
+->Using the predicted data set 
+->High error in inSample part (Yes vs No in the confution matrix) should be considered including the out of sample error rate
+->importance(model) gives the value of the predictors, which illustrates the importance of the predictor
+-> Within the confusion matrix, observe the diagonal of the matrix to discover the corrent number of yes's and no's 

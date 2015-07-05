@@ -1,0 +1,470 @@
+
+R version 3.2.1 (2015-06-18) -- "World-Famous Astronaut"
+Copyright (C) 2015 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin13.4.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> str(bank_data)
+Error in str(bank_data) : object 'bank_data' not found
+> setwd("~/Desktop/MachineLeanringProjects/RandomForests ")
+Error in setwd("~/Desktop/MachineLeanringProjects/RandomForests ") : 
+  cannot change working directory
+> setwd("~/Desktop/MachineLeanringProjects/RandomForests")
+Error in setwd("~/Desktop/MachineLeanringProjects/RandomForests") : 
+  cannot change working directory
+> setwd("~/Desktop/MachineLeanringProjects")
+Error in setwd("~/Desktop/MachineLeanringProjects") : 
+  cannot change working directory
+> setwd("~/Desktop")
+> setwd("~/Desktop/MachineLeanringProjects")
+Error in setwd("~/Desktop/MachineLeanringProjects") : 
+  cannot change working directory
+> setwd("~/")
+> setwd("~/Desktop/MachineLeanringProjects")
+Error in setwd("~/Desktop/MachineLeanringProjects") : 
+  cannot change working directory
+> setwd("~/Desktop/DataAnalyticsWork")
+> house_prices <- read.csv(file="house-prices1.csv")
+> setwd("~/Desktop/DataAnalyticsWork")
+> bank_data <- read.table("bank.csv",header=TRUE,sep=";")
+> str(bank_data)
+'data.frame':	4521 obs. of  17 variables:
+ $ age      : int  30 33 35 30 59 35 36 39 41 43 ...
+ $ job      : Factor w/ 12 levels "admin.","blue-collar",..: 11 8 5 5 2 5 7 10 3 8 ...
+ $ marital  : Factor w/ 3 levels "divorced","married",..: 2 2 3 2 2 3 2 2 2 2 ...
+ $ education: Factor w/ 4 levels "primary","secondary",..: 1 2 3 3 2 3 3 2 3 1 ...
+ $ default  : Factor w/ 2 levels "no","yes": 1 1 1 1 1 1 1 1 1 1 ...
+ $ balance  : int  1787 4789 1350 1476 0 747 307 147 221 -88 ...
+ $ housing  : Factor w/ 2 levels "no","yes": 1 2 2 2 2 1 2 2 2 2 ...
+ $ loan     : Factor w/ 2 levels "no","yes": 1 2 1 2 1 1 1 1 1 2 ...
+ $ contact  : Factor w/ 3 levels "cellular","telephone",..: 1 1 1 3 3 1 1 1 3 1 ...
+ $ day      : int  19 11 16 3 5 23 14 6 14 17 ...
+ $ month    : Factor w/ 12 levels "apr","aug","dec",..: 11 9 1 7 9 4 9 9 9 1 ...
+ $ duration : int  79 220 185 199 226 141 341 151 57 313 ...
+ $ campaign : int  1 1 1 4 1 2 1 2 2 1 ...
+ $ pdays    : int  -1 339 330 -1 -1 176 330 -1 -1 147 ...
+ $ previous : int  0 4 1 0 0 3 2 0 0 2 ...
+ $ poutcome : Factor w/ 4 levels "failure","other",..: 4 1 1 4 4 1 2 4 4 1 ...
+ $ y        : Factor w/ 2 levels "no","yes": 1 1 1 1 1 1 1 1 1 1 ...
+> View(house_prices)
+> summary(bank_data)
+      age                 job          marital         education    default       balance     
+ Min.   :19.00   management :969   divorced: 528   primary  : 678   no :4445   Min.   :-3313  
+ 1st Qu.:33.00   blue-collar:946   married :2797   secondary:2306   yes:  76   1st Qu.:   69  
+ Median :39.00   technician :768   single  :1196   tertiary :1350              Median :  444  
+ Mean   :41.17   admin.     :478                   unknown  : 187              Mean   : 1423  
+ 3rd Qu.:49.00   services   :417                                               3rd Qu.: 1480  
+ Max.   :87.00   retired    :230                                               Max.   :71188  
+                 (Other)    :713                                                              
+ housing     loan           contact          day            month         duration   
+ no :1962   no :3830   cellular :2896   Min.   : 1.00   may    :1398   Min.   :   4  
+ yes:2559   yes: 691   telephone: 301   1st Qu.: 9.00   jul    : 706   1st Qu.: 104  
+                       unknown  :1324   Median :16.00   aug    : 633   Median : 185  
+                                        Mean   :15.92   jun    : 531   Mean   : 264  
+                                        3rd Qu.:21.00   nov    : 389   3rd Qu.: 329  
+                                        Max.   :31.00   apr    : 293   Max.   :3025  
+                                                        (Other): 571                 
+    campaign          pdays           previous          poutcome      y       
+ Min.   : 1.000   Min.   : -1.00   Min.   : 0.0000   failure: 490   no :4000  
+ 1st Qu.: 1.000   1st Qu.: -1.00   1st Qu.: 0.0000   other  : 197   yes: 521  
+ Median : 2.000   Median : -1.00   Median : 0.0000   success: 129             
+ Mean   : 2.794   Mean   : 39.77   Mean   : 0.5426   unknown:3705             
+ 3rd Qu.: 3.000   3rd Qu.: -1.00   3rd Qu.: 0.0000                            
+ Max.   :50.000   Max.   :871.00   Max.   :25.0000                            
+                                                                              
+> library(psych)
+Error in library(psych) : there is no package called ‘psych’
+> install.packages(psych)
+Error in install.packages : object 'psych' not found
+> library(psych)
+Error in library(psych) : there is no package called ‘psych’
+> install.packages("psych")
+also installing the dependency ‘mnormt’
+
+trying URL 'http://cran.rstudio.com/bin/macosx/mavericks/contrib/3.2/mnormt_1.5-3.tgz'
+Content type 'application/x-gzip' length 88550 bytes (86 KB)
+==================================================
+downloaded 86 KB
+
+trying URL 'http://cran.rstudio.com/bin/macosx/mavericks/contrib/3.2/psych_1.5.4.tgz'
+Content type 'application/x-gzip' length 3234312 bytes (3.1 MB)
+==================================================
+downloaded 3.1 MB
+
+
+The downloaded binary packages are in
+	/var/folders/fc/s79xwzpn2qx83yht7gyc_tjr0000gn/T//Rtmpe2kQFr/downloaded_packages
+> library(psych)
+> pairs.panels(bank_data[,c(1:8,17)])
+> pairs.panels(bank_data[,c(9,17)])
+> pairs.panels(bank_data[,c(9:17)])
+> pairs.panels(bank_data[,c(1:8,17)])#Checking the first 8 predictors
+> new_data<-bank_data[,c(1:4,7:9,12,14,15,17)]
+> str(new_data)
+'data.frame':	4521 obs. of  11 variables:
+ $ age      : int  30 33 35 30 59 35 36 39 41 43 ...
+ $ job      : Factor w/ 12 levels "admin.","blue-collar",..: 11 8 5 5 2 5 7 10 3 8 ...
+ $ marital  : Factor w/ 3 levels "divorced","married",..: 2 2 3 2 2 3 2 2 2 2 ...
+ $ education: Factor w/ 4 levels "primary","secondary",..: 1 2 3 3 2 3 3 2 3 1 ...
+ $ housing  : Factor w/ 2 levels "no","yes": 1 2 2 2 2 1 2 2 2 2 ...
+ $ loan     : Factor w/ 2 levels "no","yes": 1 2 1 2 1 1 1 1 1 2 ...
+ $ contact  : Factor w/ 3 levels "cellular","telephone",..: 1 1 1 3 3 1 1 1 3 1 ...
+ $ duration : int  79 220 185 199 226 141 341 151 57 313 ...
+ $ pdays    : int  -1 339 330 -1 -1 176 330 -1 -1 147 ...
+ $ previous : int  0 4 1 0 0 3 2 0 0 2 ...
+ $ y        : Factor w/ 2 levels "no","yes": 1 1 1 1 1 1 1 1 1 1 ...
+> pairs.panels(new_data)
+> new_data$age<-cut(new_data$age,c(1,20,40,60,100))
+> new_data$is_divorced<-ifelse(new_data$marital=="divorced",1,0)
+> new_data$is_single<-ifelse(new_data$marital=="single",1,0)
+> new_data$is_married<-ifelse(new_data$marital=="married",1,0)
+> new_data$marital-<NULL
+Error: unexpected '<' in "new_data$marital-<"
+> new_data$marital<-NULL
+> str(new_data)
+'data.frame':	4521 obs. of  13 variables:
+ $ age        : Factor w/ 4 levels "(1,20]","(20,40]",..: 2 2 2 2 3 2 2 2 3 3 ...
+ $ job        : Factor w/ 12 levels "admin.","blue-collar",..: 11 8 5 5 2 5 7 10 3 8 ...
+ $ education  : Factor w/ 4 levels "primary","secondary",..: 1 2 3 3 2 3 3 2 3 1 ...
+ $ housing    : Factor w/ 2 levels "no","yes": 1 2 2 2 2 1 2 2 2 2 ...
+ $ loan       : Factor w/ 2 levels "no","yes": 1 2 1 2 1 1 1 1 1 2 ...
+ $ contact    : Factor w/ 3 levels "cellular","telephone",..: 1 1 1 3 3 1 1 1 3 1 ...
+ $ duration   : int  79 220 185 199 226 141 341 151 57 313 ...
+ $ pdays      : int  -1 339 330 -1 -1 176 330 -1 -1 147 ...
+ $ previous   : int  0 4 1 0 0 3 2 0 0 2 ...
+ $ y          : Factor w/ 2 levels "no","yes": 1 1 1 1 1 1 1 1 1 1 ...
+ $ is_divorced: num  0 0 0 0 0 0 0 0 0 0 ...
+ $ is_single  : num  0 0 1 0 0 1 0 0 0 0 ...
+ $ is_married : num  1 1 0 1 1 0 1 1 1 1 ...
+> par(mfrow=c(2,2),las=2)
+> plot(new_data$housing, new_data$y,xlab="Housing",ylab="Become customer?", col c=("darkgreen","red"))
+Error: unexpected symbol in "plot(new_data$housing, new_data$y,xlab="Housing",ylab="Become customer?", col c"
+> plot(new_data$housing, new_data$y,xlab="Housing",ylab="Become customer?", col =c("darkgreen","red"))
+Error in plot.new() : figure margins too large
+> plot(new_data$housing, new_data$y,xlab="Housing",ylab="Become customer?", col =c("darkgreen","red"))
+Error in plot.new() : figure margins too large
+> plot(new_data$contact, new_data$y,xlab="contact",ylab="Become customer?",col =c("darkgreen","red"))
+Error in plot.new() : figure margins too large
+> plot(new_data$housing, new_data$y,xlab="Housing",ylab="Become customer?",col =c("darkgreen","red"))
+Error in plot.new() : figure margins too large
+> boxplot(duration ~ y,data=new_data,col="red")
+Error in plot.new() : figure margins too large
+> boxplot(pdays ~ y,data=new_data,col="blue")
+Error in plot.new() : figure margins too large
+> install.packages("caret")
+also installing the dependencies ‘RColorBrewer’, ‘dichromat’, ‘munsell’, ‘labeling’, ‘stringi’, ‘magrittr’, ‘profileModel’, ‘digest’, ‘gtable’, ‘scales’, ‘proto’, ‘stringr’, ‘iterators’, ‘brglm’, ‘ggplot2’, ‘reshape2’, ‘foreach’, ‘plyr’, ‘BradleyTerry2’
+
+trying URL 'http://cran.rstudio.com/bin/macosx/mavericks/contrib/3.2/RColorBrewer_1.1-2.tgz'
+Content type 'application/x-gzip' length 24246 bytes (23 KB)
+==================================================
+downloaded 23 KB
+
+trying URL 'http://cran.rstudio.com/bin/macosx/mavericks/contrib/3.2/dichromat_2.0-0.tgz'
+Content type 'application/x-gzip' length 145404 bytes (141 KB)
+==================================================
+downloaded 141 KB
+
+trying URL 'http://cran.rstudio.com/bin/macosx/mavericks/contrib/3.2/munsell_0.4.2.tgz'
+Content type 'application/x-gzip' length 125784 bytes (122 KB)
+==================================================
+downloaded 122 KB
+
+trying URL 'http://cran.rstudio.com/bin/macosx/mavericks/contrib/3.2/labeling_0.3.tgz'
+Content type 'application/x-gzip' length 39392 bytes (38 KB)
+==================================================
+downloaded 38 KB
+
+trying URL 'http://cran.rstudio.com/bin/macosx/mavericks/contrib/3.2/stringi_0.5-5.tgz'
+Content type 'application/x-gzip' length 12685069 bytes (12.1 MB)
+==================================================
+downloaded 12.1 MB
+
+trying URL 'http://cran.rstudio.com/bin/macosx/mavericks/contrib/3.2/magrittr_1.5.tgz'
+Content type 'application/x-gzip' length 145658 bytes (142 KB)
+==================================================
+downloaded 142 KB
+
+trying URL 'http://cran.rstudio.com/bin/macosx/mavericks/contrib/3.2/profileModel_0.5-9.tgz'
+Content type 'application/x-gzip' length 65968 bytes (64 KB)
+==================================================
+downloaded 64 KB
+
+trying URL 'http://cran.rstudio.com/bin/macosx/mavericks/contrib/3.2/digest_0.6.8.tgz'
+Content type 'application/x-gzip' length 127790 bytes (124 KB)
+==================================================
+downloaded 124 KB
+
+trying URL 'http://cran.rstudio.com/bin/macosx/mavericks/contrib/3.2/gtable_0.1.2.tgz'
+Content type 'application/x-gzip' length 62782 bytes (61 KB)
+==================================================
+downloaded 61 KB
+
+trying URL 'http://cran.rstudio.com/bin/macosx/mavericks/contrib/3.2/scales_0.2.5.tgz'
+Content type 'application/x-gzip' length 303643 bytes (296 KB)
+==================================================
+downloaded 296 KB
+
+trying URL 'http://cran.rstudio.com/bin/macosx/mavericks/contrib/3.2/proto_0.3-10.tgz'
+Content type 'application/x-gzip' length 455100 bytes (444 KB)
+==================================================
+downloaded 444 KB
+
+trying URL 'http://cran.rstudio.com/bin/macosx/mavericks/contrib/3.2/stringr_1.0.0.tgz'
+Content type 'application/x-gzip' length 77633 bytes (75 KB)
+==================================================
+downloaded 75 KB
+
+trying URL 'http://cran.rstudio.com/bin/macosx/mavericks/contrib/3.2/iterators_1.0.7.tgz'
+Content type 'application/x-gzip' length 309613 bytes (302 KB)
+==================================================
+downloaded 302 KB
+
+trying URL 'http://cran.rstudio.com/bin/macosx/mavericks/contrib/3.2/brglm_0.5-9.tgz'
+Content type 'application/x-gzip' length 90164 bytes (88 KB)
+==================================================
+downloaded 88 KB
+
+trying URL 'http://cran.rstudio.com/bin/macosx/mavericks/contrib/3.2/ggplot2_1.0.1.tgz'
+Content type 'application/x-gzip' length 2670945 bytes (2.5 MB)
+==================================================
+downloaded 2.5 MB
+
+trying URL 'http://cran.rstudio.com/bin/macosx/mavericks/contrib/3.2/reshape2_1.4.1.tgz'
+Content type 'application/x-gzip' length 218201 bytes (213 KB)
+==================================================
+downloaded 213 KB
+
+trying URL 'http://cran.rstudio.com/bin/macosx/mavericks/contrib/3.2/foreach_1.4.2.tgz'
+Content type 'application/x-gzip' length 382114 bytes (373 KB)
+==================================================
+downloaded 373 KB
+
+trying URL 'http://cran.rstudio.com/bin/macosx/mavericks/contrib/3.2/plyr_1.8.3.tgz'
+Content type 'application/x-gzip' length 804791 bytes (785 KB)
+==================================================
+downloaded 785 KB
+
+trying URL 'http://cran.rstudio.com/bin/macosx/mavericks/contrib/3.2/BradleyTerry2_1.0-6.tgz'
+Content type 'application/x-gzip' length 498365 bytes (486 KB)
+==================================================
+downloaded 486 KB
+
+trying URL 'http://cran.rstudio.com/bin/macosx/mavericks/contrib/3.2/caret_6.0-47.tgz'
+Content type 'application/x-gzip' length 4015164 bytes (3.8 MB)
+==================================================
+downloaded 3.8 MB
+
+
+The downloaded binary packages are in
+	/var/folders/fc/s79xwzpn2qx83yht7gyc_tjr0000gn/T//Rtmpe2kQFr/downloaded_packages
+> inTrain<-createTrainingPartition(y=new_data$y,p=0.7,list=FALSE)
+Error: could not find function "createTrainingPartition"
+> training_data$predict.price <- predict(lm.fit1)
+Error in predict(lm.fit1) : object 'lm.fit1' not found
+> install.packageg("ggplot2")
+Error: could not find function "install.packageg"
+> install.packages("ggplot2")
+trying URL 'http://cran.rstudio.com/bin/macosx/mavericks/contrib/3.2/ggplot2_1.0.1.tgz'
+Content type 'application/x-gzip' length 2670945 bytes (2.5 MB)
+==================================================
+downloaded 2.5 MB
+
+
+The downloaded binary packages are in
+	/var/folders/fc/s79xwzpn2qx83yht7gyc_tjr0000gn/T//Rtmpe2kQFr/downloaded_packages
+> inTrain<-createTrainingPartition(y=new_data$y,p=0.7,list=FALSE)
+Error: could not find function "createTrainingPartition"
+> install.packages("ggplot2")
+trying URL 'http://cran.rstudio.com/bin/macosx/mavericks/contrib/3.2/ggplot2_1.0.1.tgz'
+Content type 'application/x-gzip' length 2670945 bytes (2.5 MB)
+==================================================
+downloaded 2.5 MB
+
+
+The downloaded binary packages are in
+	/var/folders/fc/s79xwzpn2qx83yht7gyc_tjr0000gn/T//Rtmpe2kQFr/downloaded_packages
+> install.packages("lattice")
+trying URL 'http://cran.rstudio.com/bin/macosx/mavericks/contrib/3.2/lattice_0.20-31.tgz'
+Content type 'application/x-gzip' length 713683 bytes (696 KB)
+==================================================
+downloaded 696 KB
+
+
+The downloaded binary packages are in
+	/var/folders/fc/s79xwzpn2qx83yht7gyc_tjr0000gn/T//Rtmpe2kQFr/downloaded_packages
+> inTrain<-createTrainingPartition(y=new_data$y,p=0.7,list=FALSE)
+Error: could not find function "createTrainingPartition"
+> install.packages("caret")
+trying URL 'http://cran.rstudio.com/bin/macosx/mavericks/contrib/3.2/caret_6.0-47.tgz'
+Content type 'application/x-gzip' length 4015164 bytes (3.8 MB)
+==================================================
+downloaded 3.8 MB
+
+
+The downloaded binary packages are in
+	/var/folders/fc/s79xwzpn2qx83yht7gyc_tjr0000gn/T//Rtmpe2kQFr/downloaded_packages
+> library(caret)
+Loading required package: lattice
+Loading required package: ggplot2
+Use suppressPackageStartupMessages to eliminate package startup messages.
+
+Attaching package: ‘ggplot2’
+
+The following object is masked from ‘package:psych’:
+
+    %+%
+
+> inTrain<-createTrainingPartition(y=new_data$y,p=0.7,list=FALSE)
+Error: could not find function "createTrainingPartition"
+> inTrain<-createDataPartition(y=new_data$y,p=0.7,list=FALSE)
+> training<-new_data[inTrain,]
+> testing<-new_data[-inTrain,]
+> dim(training),dim(testing)
+Error: unexpected ',' in "dim(training),"
+> dim(training);dim(testing)
+[1] 3165   13
+[1] 1356   13
+> library(randomForest)
+Error in library(randomForest) : 
+  there is no package called ‘randomForest’
+> install.packages("randomForest")
+trying URL 'http://cran.rstudio.com/bin/macosx/mavericks/contrib/3.2/randomForest_4.6-10.tgz'
+Content type 'application/x-gzip' length 168546 bytes (164 KB)
+==================================================
+downloaded 164 KB
+
+
+The downloaded binary packages are in
+	/var/folders/fc/s79xwzpn2qx83yht7gyc_tjr0000gn/T//Rtmpe2kQFr/downloaded_packages
+> model<-randormForest(y~.,data=training)
+Error: could not find function "randormForest"
+> library(randomForest)
+randomForest 4.6-10
+Type rfNews() to see new features/changes/bug fixes.
+
+Attaching package: ‘randomForest’
+
+The following object is masked from ‘package:psych’:
+
+    outlier
+
+> model<-randormForest(y~.,data=training)
+Error: could not find function "randormForest"
+> model<-randomForest(y~.,data=training)
+> model
+
+Call:
+ randomForest(formula = y ~ ., data = training) 
+               Type of random forest: classification
+                     Number of trees: 500
+No. of variables tried at each split: 3
+
+        OOB estimate of  error rate: 10.27%
+Confusion matrix:
+      no yes class.error
+no  2733  67  0.02392857
+yes  258 107  0.70684932
+> importance(model)
+            MeanDecreaseGini
+age                25.454167
+job                63.674667
+education          25.308588
+housing            15.858543
+loan                8.694303
+contact            18.461108
+duration          220.540120
+pdays              47.107018
+previous           28.104772
+is_divorced         8.071053
+is_single           8.377978
+is_married         11.563454
+> importance(model)
+            MeanDecreaseGini
+age                25.454167
+job                63.674667
+education          25.308588
+housing            15.858543
+loan                8.694303
+contact            18.461108
+duration          220.540120
+pdays              47.107018
+previous           28.104772
+is_divorced         8.071053
+is_single           8.377978
+is_married         11.563454
+> predicted<-predict(model,testing)
+> table(predicted)
+predicted
+  no  yes 
+1272   84 
+> confusionMatrix(predicted, testing$y)
+Error in requireNamespaceQuietStop("e1071") : package e1071 is required
+> library(caret)
+> predicted<-predict(model,testing)
+> table(predicted)
+predicted
+  no  yes 
+1272   84 
+> confusionMatrix(predicted, testing$y)
+Error in requireNamespaceQuietStop("e1071") : package e1071 is required
+> install.packages('e1071', dependencies=TRUE)
+also installing the dependencies ‘mlbench’, ‘xtable’
+
+trying URL 'http://cran.rstudio.com/bin/macosx/mavericks/contrib/3.2/mlbench_2.1-1.tgz'
+Content type 'application/x-gzip' length 1022566 bytes (998 KB)
+==================================================
+downloaded 998 KB
+
+trying URL 'http://cran.rstudio.com/bin/macosx/mavericks/contrib/3.2/xtable_1.7-4.tgz'
+Content type 'application/x-gzip' length 378723 bytes (369 KB)
+==================================================
+downloaded 369 KB
+
+trying URL 'http://cran.rstudio.com/bin/macosx/mavericks/contrib/3.2/e1071_1.6-4.tgz'
+Content type 'application/x-gzip' length 479210 bytes (467 KB)
+==================================================
+downloaded 467 KB
+
+
+The downloaded binary packages are in
+	/var/folders/fc/s79xwzpn2qx83yht7gyc_tjr0000gn/T//Rtmpe2kQFr/downloaded_packages
+> confusionMatrix(predicted, testing$y)
+Confusion Matrix and Statistics
+
+          Reference
+Prediction   no  yes
+       no  1161  111
+       yes   39   45
+                                          
+               Accuracy : 0.8894          
+                 95% CI : (0.8715, 0.9056)
+    No Information Rate : 0.885           
+    P-Value [Acc > NIR] : 0.3229          
+                                          
+                  Kappa : 0.3203          
+ Mcnemar's Test P-Value : 6.746e-09       
+                                          
+            Sensitivity : 0.9675          
+            Specificity : 0.2885          
+         Pos Pred Value : 0.9127          
+         Neg Pred Value : 0.5357          
+             Prevalence : 0.8850          
+         Detection Rate : 0.8562          
+   Detection Prevalence : 0.9381          
+      Balanced Accuracy : 0.6280          
+                                          
+       'Positive' Class : no              
+                                          
